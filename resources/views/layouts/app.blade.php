@@ -114,12 +114,12 @@
                             <td><input class="form-control quantity-input" type="number" value="${item.quantity}" min="1" data-price="${item.price}" data-id="${item.id}"></td>
                             <td class="text-right">${itemTotal.toFixed(2)} </td>
                             <td class="text-right">
-                            <form action="/cart/remove/${item.id}" method="POST">
-                               @csrf
-                               @method('DELETE')
-                              <button class="btn btn-sm btn-danger"><i class="fas fa-trash">x</i></button>
-                            </form>
-                            </td>`;
+                                <form action="/cart/remove/${item.id}" method="POST">
+                                    @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>`;
                         cartTableBody.appendChild(row);
                     });
 

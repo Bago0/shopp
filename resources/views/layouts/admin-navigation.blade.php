@@ -3,6 +3,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container-fluid">
+        <!-- Logo -->
+        @if($user)
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
+                <x-application-logo class="h-9 w-auto fill-current text-gray-800"/>
+            </a>
+        @endif
+
         <!-- Toggler Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
