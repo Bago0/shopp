@@ -15,7 +15,6 @@
 
     <form method="post" action="{{ Auth::user()->isAdmin() ? route('profile.update-admin') : route('profile.update') }}" class="mt-4">
         @csrf
-        @method('patch')
 
         <div class="mb-3">
             <x-input-label for="name" :value="__('Name')" />

@@ -19,9 +19,9 @@ Route::middleware(NotAdminMiddleware::class)->group(function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(NotAdminMiddleware::class)->group(function () {
     Route::middleware('auth')->group(function () {
@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function(){
     Route::middleware(IsAdminMiddleware::class)->group(function () {
         Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
         Route::get('/create/category&product', [CategoryController::class, 'listForAdmin'])->name('create.categoriesAndProducts');
-        Route::patch('/profile', [AdminProfileController::class, 'update'])->name('profile.update-admin');
+        Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile.update-admin');
         Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit-admin');
         Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
         Route::get('/home/category/remove/{itemId}', [CategoryController::class, 'remove']);

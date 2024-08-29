@@ -28,18 +28,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($order->cart->items as $item)
-                            <tr>
-                                <td>{{ $item->product->title }}</td>
-                                <td>{{ $item->quantity }}</td>
-                                <td>${{ number_format($item->price / 100, 2) }}</td>
-                                <td>
-                                    @foreach($item->product->images as $image)
-                                        <img src="/storage/{{ $image->image_path }}" alt="{{ $item->product->name }}" class="img-thumbnail" width="100">
-                                    @endforeach
-                                </td>
-                            </tr>
-                        @endforeach
+                        @if(!empty($order->cart->items))
+                            @foreach($order->cart->items as $item)
+                                <tr>
+                                    <td>{{ $item->product->title ?? '' }}</td>
+                                    <td>{{ $item->quantity ?? '' }}</td>
+                                    <td>${{ number_format($item->price / 100, 2) ?? '' }}</td>
+                                    <td>
+                                        @if(!empty($item->product->images))
+                                            @foreach($item->product->images as $image)
+                                                <img src="/storage/{{ $image->image_path }}" alt="{{ $item->product->name }}" class="img-thumbnail" width="100">
+                                            @endforeach
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
