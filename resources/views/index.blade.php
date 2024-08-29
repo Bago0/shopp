@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container-fluid p-4">
-        @if(!empty($featuredProducts))
+        @if($featuredProducts->isNotEmpty())
             <div class="row">
                 <div class="col">
                     <h3>Featured Products</h3>
@@ -16,7 +16,7 @@
                                         @endif
                                         <div class="card-body d-flex flex-column">
                                             <h5 class="card-title">{{ $product->title }}</h5>
-                                            <p class="card-text"><strong>${{ number_format($product->price / 100, 2) }}</strong></p>
+                                            <p class="card-text"><strong>{{ number_format($product->price / 100, 2) }}</strong></p>
                                         </div>
                                         <div class="mt-auto p-3">
                                             <form action="{{ route('cart.add', $product->id) }}" method="POST">
@@ -52,7 +52,7 @@
                                     @endif
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">{{ $product->title }}</h5>
-                                        <p class="card-text"><strong>${{ number_format($product->price / 100, 2) }}</strong></p>
+                                        <p class="card-text"><strong>{{ number_format($product->price / 100, 2) }}</strong></p>
                                     </div>
                                     <div class="mt-auto p-3">
                                         <form action="{{ route('cart.add', $product->id) }}" method="POST">
@@ -89,7 +89,7 @@
                                         @endif
                                         <div class="card-body d-flex flex-column">
                                             <h5 class="card-title">{{ $product->title }}</h5>
-                                            <p class="card-text"><strong>${{ number_format($product->price / 100, 2) }}</strong></p>
+                                            <p class="card-text"><strong>{{ number_format($product->price / 100, 2) }}</strong></p>
                                         </div>
                                         <div class="mt-auto p-3">
                                             <form action="{{ route('cart.add', $product->id) }}" method="POST">

@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function(){
         Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile.update-admin');
         Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit-admin');
         Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-        Route::get('/home/category/remove/{itemId}', [CategoryController::class, 'remove']);
+        Route::get('/create/category&product/category/remove/{itemId}', [CategoryController::class, 'remove']);
         Route::post('/products/save', [ProductController::class, 'store'])->name('products.store');
         Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
         Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');

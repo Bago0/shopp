@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{ $item->product->title ?? '' }}</td>
                                     <td>{{ $item->quantity ?? '' }}</td>
-                                    <td>${{ number_format($item->price / 100, 2) ?? '' }}</td>
+                                    <td>{{ number_format($item->price / 100, 2) ?? '' }}</td>
                                     <td>
                                         @if(!empty($item->product->images))
                                             @foreach($item->product->images as $image)

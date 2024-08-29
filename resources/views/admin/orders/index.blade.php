@@ -17,7 +17,7 @@
             @foreach ($orders as $order)
                 <tr data-id="{{ $order->id }}">
                     <th scope="col">{{ $order->id }}</th>
-                    <td>${{ number_format($order->total_price / 100, 2) }}</td>
+                    <td>{{ number_format($order->total_price / 100, 2) }}</td>
                     <td>{{ $order->created_at->format('Y-m-d H:i:s') }}</td>
                     <td>
                         <form action="{{route('change.order.status',$order->id)}}" method="POST">

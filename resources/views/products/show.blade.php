@@ -12,7 +12,7 @@
                         @endif
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $product->title }}</h5>
-                            <p class="card-text"><strong>${{ number_format($product->price / 100, 2) }}</strong></p>
+                            <p class="card-text"><strong>{{ number_format($product->price / 100, 2) }}</strong></p>
                         </div>
                         <div class="mt-auto p-3">
                             <form action="{{ route('cart.add', $product->id) }}" method="POST">
