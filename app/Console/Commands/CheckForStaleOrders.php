@@ -28,13 +28,9 @@ class CheckForStaleOrders extends Command
     public function handle()
     {
         $now = Carbon::now();
-
-        // Find orders that are 2 days old and have status "new"
         $staleOrders = Order::where('status', 'new')
             ->whereDate('created_at', '<=', $now->subDays(2))
             ->get();
-
-        // Update status to "stale"
         foreach ($staleOrders as $order) {
             $order->status = 'stale';
             $order->save();
